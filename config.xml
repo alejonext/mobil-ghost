@@ -2,10 +2,10 @@
 <widget id="co.alejonext.ghost" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Ghost</name>
     <description>
-        A simple app for Ghost
+        App for Ghost
     </description>
     <author email="algo@alejonext.co" href="http://alejonext.co">
-        Apache Cordova Team
+        Alejo Next
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -29,6 +29,9 @@
 	<preference name="target-device" value="universal" />
 	<preference name="UIWebViewBounce" value="true"  />
 	<preference name="webviewbounce" value="false" />
+
+	<preference name="showmessageinnotification" value="true" />
+	<preference name="defaultnotificationmessage" value="New message has arrived!" />
 
 	<feature name="SocialSharing">
 		<param name="android-package" value="nl.xservices.plugins.SocialSharing" />
@@ -57,6 +60,9 @@
 	</feature>
 	<feature name="Splashscreen">
 		<param name="id" value="org.apache.cordova.splashscreen" />
+	</feature>
+	<feature name="PushPlugin" >
+		<param name="android-package" value="com.amazon.cordova.plugin.PushPlugin"/>
 	</feature>
 
 	<platform name="android">
