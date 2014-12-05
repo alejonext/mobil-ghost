@@ -1,0 +1,9 @@
+require('angular');
+require('angular-route');
+require('angular-animate');
+require('angular-messages');
+require('angular-sanitize');
+require('angular-socket-io');
+require('angular-touch');
+require('ng-storage');
+require('ng-cordova');
