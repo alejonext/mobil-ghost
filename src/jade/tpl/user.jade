@@ -1,0 +1,5 @@
+ul.untyls
+	li( ng-repeat="user in users" )
+		a(href="#/user/{{user.id}}")
+			h4 {{user.name}}
+			p {{user.rol}}

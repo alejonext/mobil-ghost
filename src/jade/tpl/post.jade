@@ -1,0 +1,6 @@
+section.ink-tabs.top
+	ul.tabs-nav.black
+		li( ng-class="{ active : tabs.view }" ): a.tabs-tab( ng-href="#/post/{{post.id}}/view") View
+		li( ng-class="{ active : tabs.edit }" ): a.tabs-tab( ng-href="#/post/{{post.id}}/edit") Edit
+		li( ng-class="{ active : tabs.setting }" ): a.tabs-tab( ng-href="#/post/{{post.id}}/setting") Setting
+	article.tabs-content( ng-include="isTabs" )

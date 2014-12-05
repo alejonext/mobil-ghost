@@ -5,7 +5,8 @@ var app = angular.module('ghost', [
 	'ngResource',
 	'ngSanitize',
 	'ngStorage',
-	'ngRoute'
+	'ngRoute',
+	'ngTouch'
 ]);
 
 app.service('login', require('./service/login.js')); // Login

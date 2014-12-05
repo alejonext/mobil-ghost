@@ -1,0 +1,28 @@
+form#login.ink-form(ng-submit="goLogin")
+	
+	.control-group
+		label( for="title") Blog Title
+		.control
+			input#title(type="text", placeholder="Blog Title", ng-model="blog.title", name="title", ng-require="true")
+		p.tip The name of your blog
+	.control-group
+		label( for="description") Blog Description
+		.control
+			textarea#description(ng-model="blog.description", placeholder="placeholder", name="description", ng-require="true")
+	.control-group
+		label( for="email") Email Address
+		.control
+			input#email(type="email", placeholder="Blog Title", ng-model="blog.email", name="email", ng-require="true")
+		p.tip Address to use for admin notifications
+	.control-group
+		label( for="pages") Posts per page
+		.control
+			input#pages(type="number", placeholder="Posts per page", ng-model="blog.perpage", name="pages", ng-require="true")
+		p.tip How many posts should be displayed on each page
+	.control-group
+		label( for="permalinks") Dated Permalinks
+		.control
+			input#permalinks(type="checkbox", ng-model="blog.permalinks", name="permalinks", ng-require="true")
+		p.tip How many posts should be displayed on each page
+		
+	button.ink-button.blue.all(type="submit" ) Save

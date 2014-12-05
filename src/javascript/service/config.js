@@ -10,10 +10,6 @@ module.exports = function (routeP, httpP){
 			controller : 'post'
 		})
 		.when('/user', {
-			templateUrl : 'userlist',
-			controller : 'user'
-		})
-		.when('/user/:id', {
 			templateUrl : 'user',
 			controller : 'user'
 		})

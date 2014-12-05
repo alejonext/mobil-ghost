@@ -7,16 +7,7 @@ html
 		meta( name="viewport", content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi")
 		link( rel="stylesheet",type="text/css", href="main.css")
 		title ghost
-	
-	body( ng-app="ghost" )
-		section.app-grid(ng-controller="appgrid" )
-			nav.ink-navigation
-				ul.menu.horizontal.black
-					li: a(href="#/" ) 
-				ul.menu.horizontal.black
-					li: a(href="#/" )
 
-			section.ink-grid( ng-view )
 		script#login(type="text/ng-template")
 			include tpl/login
 		script#post(type="text/ng-template")
@@ -29,10 +20,21 @@ html
 			include tpl/post-edit
 		script#home(type="text/ng-template")
 			include tpl/home
-		script#userlist(type="text/ng-template")
-			include tpl/userlist
 		script#user(type="text/ng-template")
 			include tpl/user
 
 		script( type="text/javascript", src="cordova.js")
 		script( type="text/javascript", src="app.js")
+	
+	body.app-grid( ng-app="ghost", ng-controller="appgrid" )
+		nav.ink-navigation( ng-show="isLogin" )
+			ul.menu.horizontal.black
+				li: a( ng-click="openDrawer()" ) 
+			ul.menu.horizontal.black
+				li: a(href="#/home" )
+		drawer( position="left", content="#content", ng-if="isLogin" )
+			ul( ng-controller="list" )
+				li.heading: a(href="#/post/new" ) New Post
+				li( ng-repeat="post in posts" )
+					a(ng-href="#/post/{{post.id}}/view") {{post.name | check:30}}
+		section.ink-grid#content( ng-view )

@@ -1,0 +1,14 @@
+form#login.ink-form(ng-submit="goLogin")
+	.control-group
+		label.hide-all( for="url") Url
+		.control
+			input(type="url", placeholder="Url", ng-model="url", name="url", ng-require="true")
+	.control-group
+		label.hide-all( for="url") User
+		.control
+			input(type="text", placeholder="User or Email", ng-model="user", name="user", ng-require="true")
+	.control-group
+		label.hide-all( for="url") PassWord
+		.control
+			input(type="pasword", placeholder="password", ng-model="password", name="password", ng-require="true")
+	button.ink-button.blue.all(type="submit" ) Login
