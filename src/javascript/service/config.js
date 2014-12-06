@@ -1,17 +1,14 @@
 module.exports = function (routeP, httpP){
 	httpP.defaults.withCredentials = true;
+	httpP.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 	routeP
-		.when('/home', {
-			templateUrl: 'home',
-			controller : 'home'
+		.when('/info/:name', {
+			templateUrl: 'info',
+			controller : 'info'
 		})
 		.when('/post/:id/:acction', {
 			templateUrl : 'post',
 			controller : 'post'
-		})
-		.when('/user', {
-			templateUrl : 'user',
-			controller : 'user'
 		})
 		.otherwise({
 			templateUrl: 'login',

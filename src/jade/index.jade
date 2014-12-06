@@ -35,6 +35,6 @@ html
 		drawer( position="left", content="#content", ng-if="is.login" )
 			ul( ng-controller="list" )
 				li.heading: a(href="#/post/new" ) New Post
-				li( ng-repeat="post in posts" )
+				li( ng-repeat="post in posts", ng-class="{ active : post.id === active }" )
 					a(ng-href="#/post/{{post.id}}/view") {{post.name | check:30}}
 		section.ink-grid#content( ng-view )

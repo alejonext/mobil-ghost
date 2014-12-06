@@ -14,6 +14,7 @@ app.service('posts', require('./service/posts.js')); // Posts
 app.service('tags', require('./service/tags.js')); // Tags
 app.service('info', require('./service/info.js')); // Info blog
 app.service('user', require('./service/user.js')); // Users
+app.service('auth', require('./service/auth.js')); // Auth
 
 app.directive('publish', require('./directive/publish.js'));
 app.directive('date', require('./directive/date.js'));

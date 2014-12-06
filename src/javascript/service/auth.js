@@ -1,4 +1,4 @@
-﻿module.exports = function (scope, stroge, resource, api ){
+module.exports = function (scope, stroge, resource, api, app ){
 	var is = stroge.$default({
 		login : false,
 		local : location.path(),
@@ -15,30 +15,23 @@
 		}
 	});
 
-	return resource( 'http' + (  is.secure ? 's' : '' ) + '://' + is.url + api + '/tags/:id', {
-		id : ''
+	return resource( 'http' + (  is.secure ? 's' : '' ) + '://' + is.url + api + 'authentication/:action', {
+		action : 'passwordreset'
 	}, {
-		list : {
+		reload : {
 			method : 'GET',
 			params : {
-
+				id : ''
 			},
 			headers : is.oauth.header
 		},
-		add : {
+		get : {
 			method : 'POST',
-			headers : is.oauth.header,
+			withCredentials : true,
 			params : {
-
+				action : 'token'
 			},
-		},
-		remove : {
-			method : 'DELETE',
-			headers : is.oauth.header,
-			params : {
-
-			}
-		},
+		}
 	});
 };
 

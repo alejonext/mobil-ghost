@@ -1,4 +1,3 @@
-mobil-ghost
-===========
+# ghost for Mobil
 
-The app Ghost in cordova and angular
+This project is the App the (ghost)[https://ghost.org/] 

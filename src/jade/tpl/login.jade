@@ -1,14 +1,15 @@
 form#login.ink-form(ng-submit="goLogin")
+	.animation( ng-show="login.loading" )
 	.control-group
 		label.hide-all( for="url") Url
 		.control
-			input(type="url", placeholder="Url", ng-model="url", name="url", ng-require="true")
+			input(type="url", placeholder="Url", ng-model="is.url", name="url", ng-require="true", ng-disable="login.loading")
 	.control-group
 		label.hide-all( for="url") User
 		.control
-			input(type="text", placeholder="User or Email", ng-model="user", name="user", ng-require="true")
+			input(type="text", placeholder="User or Email", ng-model="login.user", name="user", ng-require="true", ng-disable="login.loading")
 	.control-group
 		label.hide-all( for="url") PassWord
 		.control
-			input(type="pasword", placeholder="password", ng-model="password", name="password", ng-require="true")
-	button.ink-button.blue.all(type="submit" ) Login
+			input(type="pasword", placeholder="password", ng-model="login.password", name="password", ng-require="true", ng-disable="login.loading")
+	button.ink-button.blue.all(type="submit", ng-disable="login.loading" ) Login

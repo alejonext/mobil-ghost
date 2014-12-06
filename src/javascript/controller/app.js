@@ -2,7 +2,13 @@
 	scope.is = stroge.$default({
 		login : false,
 		local : location.path(),
-		url : ''
+		url : '',
+		oauth : {
+			access_token: '',
+			refresh_token: '',
+			expires_in: 0,
+			token_type: ''
+		}
 	});
 
 	if(!scope.is.login && location.path().split('/')[1] != 'login' ){
