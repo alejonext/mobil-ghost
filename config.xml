@@ -9,36 +9,70 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-
     <preference name="loglevel" value="INFO" />
-	<preference name="android-installLocation" value="auto" />
-	<preference name="android-minSdkVersion" value="7" />
-	<preference name="auto-hide-splash-screen" value="true" />
-	<preference name="BackupWebStorage" value="none" />
-	<preference name="detect-data-types" value="true" />
-	<preference name="disable-cursor" value="false" />
-	<preference name="DisallowOverscroll" value="true" />
-	<preference name="exit-on-suspend" value="false" />
-	<preference name="fullscreen" value="false" />
-	<preference name="ios-statusbarstyle" value="black-opaque" />
-	<preference name="orientation" value="portrait" />
-	<preference name="permissions" value="none" />
-	<preference name="prerendered-icon" value="true" />
-	<preference name="show-splash-screen-spinner" value="true" />
-	<preference name="stay-in-webview" value="false" />
-	<preference name="target-device" value="universal" />
-	<preference name="UIWebViewBounce" value="true"  />
-	<preference name="webviewbounce" value="false" />
-
-	<preference name="showmessageinnotification" value="true" />
-	<preference name="defaultnotificationmessage" value="New message has arrived!" />
-
-	<feature name="SocialSharing">
-		<param name="android-package" value="nl.xservices.plugins.SocialSharing" />
-	</feature>
-	<feature name="StatusBar">
-		<param name="ios-package" value="CDVStatusBar" onload="true"/>
-	</feature>
+    <preference name="android-installLocation" value="auto" />
+    <preference name="android-minSdkVersion" value="7" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="BackupWebStorage" value="none" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="fullscreen" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="orientation" value="portrait" />
+    <preference name="permissions" value="none" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="target-device" value="universal" />
+    <preference name="UIWebViewBounce" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="showmessageinnotification" value="true" />
+    <preference name="defaultnotificationmessage" value="New message has arrived!" />
+    <platform name="android">
+        <icon src="src/icon/icon-96x96.png" />
+        <icon density="ldpi" src="src/icon/icon-36x36.png" />
+        <icon density="mdpi" src="src/icon/icon-48x48.png" />
+        <icon density="hdpi" src="src/icon/icon-72x72.png" />
+        <icon density="xhdpi" src="src/icon/icon-96x96.png" />
+        <preference name="KeepRunning" value="true" />
+    </platform>
+    <platform name="ios">
+        <icon height="60" src="src/icon/icon-60x60.png" width="60" />
+        <icon height="120" src="src/icon/icon-120x120.png" width="120" />
+        <icon height="76" src="src/icon/icon-76x76.png" width="76" />
+        <icon height="152" src="src/icon/icon-152x152.png" width="152" />
+        <icon height="40" src="src/icon/icon-40x40.png" width="40" />
+        <icon height="80" src="src/icon/icon-80x80.png" width="80" />
+        <icon height="57" src="src/icon/icon-57x57.png" width="57" />
+        <icon height="114" src="src/icon/icon-114x114.png" width="114" />
+        <icon height="72" src="src/icon/icon-72x72.png" width="72" />
+        <icon height="144" src="src/icon/icon-144x144.png" width="144" />
+        <icon height="29" src="src/icon/icon-29x29.png" width="29" />
+        <icon height="58" src="src/icon/icon-58x58.png" width="58" />
+        <icon height="50" src="src/icon/icon-50x50.png" width="50" />
+        <icon height="100" src="src/icon/icon-100x100.png" width="100" />
+    </platform>
+    <platform name="firefoxos">
+        <icon height="60" src="src/icon/icon-60x60.png" width="60" />
+        <icon height="128" src="src/icon/icon-128x128.png" width="128" />
+    </platform>
+    <feature name="PushPlugin">
+        <param name="id" value="com.phonegap.plugins.PushPlugin" />
+        <param name="url" value="https://github.com/phonegap-build/PushPlugin.git#:." />
+    </feature>
+    <feature name="SocialSharing">
+        <param name="id" value="nl.x-services.plugins.socialsharing" />
+        <param name="url" value="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git#:." />
+    </feature>
+    <feature name="Toast">
+        <param name="id" value="nl.x-services.plugins.toast" />
+        <param name="url" value="https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin#:." />
+    </feature>
+    <feature name="Device">
+        <param name="id" value="org.apache.cordova.device" />
+    </feature>
     <feature name="Notification">
         <param name="id" value="org.apache.cordova.dialogs" />
     </feature>
@@ -48,49 +82,10 @@
     <feature name="Media">
         <param name="id" value="org.apache.cordova.media" />
     </feature>
+    <feature name="Splashscreen">
+        <param name="id" value="org.apache.cordova.splashscreen" />
+    </feature>
     <feature name="Vibration">
         <param name="id" value="org.apache.cordova.vibration" />
     </feature>
-    <feature name="Toast">
-		<param name="id" value="nl.x-services.plugins.toast" />
-		<param name="url" value="https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin#:." />
-	</feature>
-	<feature name="Device">
-		<param name="id" value="org.apache.cordova.device" />
-	</feature>
-	<feature name="Splashscreen">
-		<param name="id" value="org.apache.cordova.splashscreen" />
-	</feature>
-	<feature name="PushPlugin" >
-		<param name="android-package" value="com.amazon.cordova.plugin.PushPlugin"/>
-	</feature>
-
-	<platform name="android">
-		<icon src="src/icon/icon-96x96.png" />
-		<icon density="ldpi" src="src/icon/icon-36x36.png" />
-		<icon density="mdpi" src="src/icon/icon-48x48.png" />
-		<icon density="hdpi" src="src/icon/icon-72x72.png" />
-		<icon density="xhdpi" src="src/icon/icon-96x96.png" />
-		<preference name="KeepRunning" value="true" />
-	</platform>
-	<platform name="ios">
-		<icon height="60" src="src/icon/icon-60x60.png" width="60" />
-		<icon height="120" src="src/icon/icon-120x120.png" width="120" />
-		<icon height="76" src="src/icon/icon-76x76.png" width="76" />
-		<icon height="152" src="src/icon/icon-152x152.png" width="152" />
-		<icon height="40" src="src/icon/icon-40x40.png" width="40" />
-		<icon height="80" src="src/icon/icon-80x80.png" width="80" />
-		<icon height="57" src="src/icon/icon-57x57.png" width="57" />
-		<icon height="114" src="src/icon/icon-114x114.png" width="114" />
-		<icon height="72" src="src/icon/icon-72x72.png" width="72" />
-		<icon height="144" src="src/icon/icon-144x144.png" width="144" />
-		<icon height="29" src="src/icon/icon-29x29.png" width="29" />
-		<icon height="58" src="src/icon/icon-58x58.png" width="58" />
-		<icon height="50" src="src/icon/icon-50x50.png" width="50" />
-		<icon height="100" src="src/icon/icon-100x100.png" width="100" />
-	</platform>
-	<platform name="firefoxos">
-		<icon height="60" src="src/icon/icon-60x60.png" width="60" />
-		<icon height="128" src="src/icon/icon-128x128.png" width="128" />
-	</platform>
 </widget>
