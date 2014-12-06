@@ -8,13 +8,12 @@ var app = angular.module('ghost', [
 	'ngRoute',
 	'ngTouch'
 ]);
-
-app.service('login', require('./service/login.js')); // Login
+app.constant('API', '/ghost/api/v0.1/'); // API the Ghost
+app.service('auth', require('./service/auth.js')); // Auth
+app.service('info', require('./service/info.js')); // Info blog and user
 app.service('posts', require('./service/posts.js')); // Posts
 app.service('tags', require('./service/tags.js')); // Tags
-app.service('info', require('./service/info.js')); // Info blog
-app.service('user', require('./service/user.js')); // Users
-app.service('auth', require('./service/auth.js')); // Auth
+app.service('upload', require('./service/upload.js')); // Info blog and user
 
 app.directive('publish', require('./directive/publish.js'));
 app.directive('date', require('./directive/date.js'));

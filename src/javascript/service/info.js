@@ -1,36 +1,18 @@
 ﻿module.exports = function (scope, stroge, resource, api, app ){
-	var is = stroge.$default({
-		login : false,
-		local : location.path(),
-		url : '',
-		secure : true,
-		oauth : {
-			access_token: '',
-			refresh_token: '',
-			expires_in: 0,
-			token_type: '',
-			header : {
-				'Authorization' : ''
-			}
-		}
-	});
-
-	return resource( 'http' + (  is.secure ? 's' : '' ) + '://' + is.url + api + ':name/:id', {
-		
+	return resource( 'http' + ( stroge.secure ? 's' : '' ) + '://:urls' + api + ':name/:id', {
+		urls : stroge.url,
 	}, {
 		user : {
 			method : 'GET',
-			withCredentials : true,
 			params : {
 				id : 'me',
 				name : 'user'
 			},
-			headers : res
+			headers : stroge.oauth.header
 		},
 		site : {
 			method : 'GET',
-			withCredentials : true,
-			headers : res,
+			headers : stroge.oauth.header,
 			params : {
 				name : 'settings',
 				id : ''

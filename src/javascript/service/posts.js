@@ -1,21 +1,6 @@
 module.exports = function (scope, stroge, resource, api, app ){
-	var is = stroge.$default({
-		login : false,
-		local : location.path(),
-		url : '',
-		secure : true,
-		oauth : {
-			access_token: '',
-			refresh_token: '',
-			expires_in: 0,
-			token_type: '',
-			header : {
-				'Authorization' : ''
-			}
-		}
-	});
-
-	return resource( 'http' + (  is.secure ? 's' : '' ) + '://' + is.url + api + 'posts/:id?', {
+	return resource( 'http' + ( stroge.secure ? 's' : '' ) + '://:urls' + api + api + 'posts/:id?', {
+		urls : stroge.url,
 		id : ''
 	}, {
 		list : { // Get the list of the posts
@@ -26,11 +11,11 @@ module.exports = function (scope, stroge, resource, api, app ){
 				status : 'all',
 				staticPages : 'all',
 			},
-			headers : is.oauth.header,
+			headers : stroge.oauth.header,
 		},
 		byId : { // Get the post
 			method : 'GET',
-			headers : is.oauth.header,
+			headers : stroge.oauth.header,
 			params : {
 				id : '@',
 				include : 'tags',
@@ -39,21 +24,21 @@ module.exports = function (scope, stroge, resource, api, app ){
 		},
 		save : { // New Post
 			method : 'POST',
-			headers : is.oauth.header,
+			headers : stroge.oauth.header,
 			params : {
 				id : ''
 			},
 		},
 		update :{ // Update Post
 			method : 'PUT',
-			headers : is.oauth.header,
+			headers : stroge.oauth.header,
 			params : {
 				id : '@'
 			},
 		},
 		remove :{ // Remove Post
 			method : 'DELETE',
-			headers : is.oauth.header,
+			headers : stroge.oauth.header,
 			params : {
 				id : '@'
 			},

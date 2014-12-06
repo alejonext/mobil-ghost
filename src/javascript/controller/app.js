@@ -3,11 +3,15 @@
 		login : false,
 		local : location.path(),
 		url : '',
+		secure : true,
 		oauth : {
 			access_token: '',
 			refresh_token: '',
 			expires_in: 0,
-			token_type: ''
+			token_type: '',
+			header : {
+				'Authorization' : ''
+			}
 		}
 	});
 
