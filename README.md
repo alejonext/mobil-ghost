@@ -1,12 +1,12 @@
 # ghost for Mobil
 
-This project is the App the [https://ghost.org/](ghost) 
+This project is the App the [ghost](https://ghost.org/)
 
 
 ## Install
 
-* [plugins/README.md](Install plugins)
-* [platfroms/README.md](Install platform)
+* [Install plugins](plugins/README.md)
+* [Install platform](platfroms/README.md)
 
 ## Build
 
