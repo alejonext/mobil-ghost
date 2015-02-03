@@ -1,6 +1,7 @@
-module.exports = function (scope, stroge, resource, api, app ){
-	return resource( 'http' + ( stroge.secure ? 's' : '' ) + '://:urls' + api + 'notifications/:id', {
-		urls : stroge.url,
+module.exports = function (auth, resource, api ){
+	var headers = auth.headers();
+	return resource( ':urls' + api + 'notifications/:id', {
+		urls : oauth.get(),
 		id : ''
 	}, {
 		lstroget : {
@@ -8,18 +9,18 @@ module.exports = function (scope, stroge, resource, api, app ){
 			params : {
 				id : ''
 			},
-			headers : res
+			headers : headers
 		},
 		add : {
 			method : 'POST',
-			headers : stroge.oauth.header,
+			headers : headers,
 			params : {
 
 			},
 		},
 		remove : {
 			method : 'DELETE',
-			headers : stroge.oauth.header,
+			headers : headers,
 			params : {
 
 			}
@@ -28,8 +29,7 @@ module.exports = function (scope, stroge, resource, api, app ){
 };
 
 module.exports.$inject = [
-	'$scope',
-	'$localStorage',
+	'auth',
 	'$resource',
 	'api'
 ];

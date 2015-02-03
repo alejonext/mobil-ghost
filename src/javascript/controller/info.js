@@ -1,10 +1,6 @@
-﻿module.exports = function (scope, param, info, auth, toast, share ){
-	scope.infos = {};
-	scope.ghost = get[ param.name ]({}, function (data) {
-		scope.infos = angular.isArray(data.users) ? data.users[0] : data;
-	}, function (error) {
-		toast.push(error);
-	});
+﻿module.exports = function (scope, param, info, toast, share ){
+	scope.info = {};
+	scope.info[ param.name ] = info[ param.name ]();
 
 	scope.toShare = function () {
 		//share.
@@ -13,7 +9,8 @@
 
 module.exports.$inject = [
 	'$scope',
-	'$param',
+	'$routeParam',
 	'info',
+	'toast',
 	'share'
 ];

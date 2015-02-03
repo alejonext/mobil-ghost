@@ -1,4 +1,4 @@
-﻿module.exports = function (scope, stroge, location, post, toast){
+﻿module.exports = function (scope, post, toast){
 	scope.ghost = post.list();
 	scope.active = location.path().split('/')[3];
 
@@ -25,7 +25,6 @@
 
 module.exports.$inject = [
 	'$scope',
-	'$localStorage',
-	'$location',
-	'posts'
+	'posts',
+	'toast'
 ];

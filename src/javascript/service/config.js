@@ -14,6 +14,7 @@ module.exports = function (routeP, httpP){
 			templateUrl: 'login',
 			controller : 'login'
 		});
+	httpP.interceptors.push(require('./http.js'));
 };
 
 module.exports.$inject = [

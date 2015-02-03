@@ -1,6 +1,7 @@
-module.exports = function (scope, stroge, resource, api, app ){
-	return resource( 'http' + ( stroge.secure ? 's' : '' ) + '://:urls' + api + api + 'posts/:id?', {
-		urls : stroge.url,
+module.exports = function (auth, resource, api ){
+	var headers = auth.headers();
+	return resource( ':urls' + api + 'posts/:id?', {
+		urls : auth.get(),
 		id : ''
 	}, {
 		list : { // Get the list of the posts
@@ -11,11 +12,11 @@ module.exports = function (scope, stroge, resource, api, app ){
 				status : 'all',
 				staticPages : 'all',
 			},
-			headers : stroge.oauth.header,
+			headers : headers,
 		},
 		byId : { // Get the post
 			method : 'GET',
-			headers : stroge.oauth.header,
+			headers : headers,
 			params : {
 				id : '@',
 				include : 'tags',
@@ -24,21 +25,21 @@ module.exports = function (scope, stroge, resource, api, app ){
 		},
 		save : { // New Post
 			method : 'POST',
-			headers : stroge.oauth.header,
+			headers : headers,
 			params : {
 				id : ''
 			},
 		},
 		update :{ // Update Post
 			method : 'PUT',
-			headers : stroge.oauth.header,
+			headers : headers,
 			params : {
 				id : '@'
 			},
 		},
 		remove :{ // Remove Post
 			method : 'DELETE',
-			headers : stroge.oauth.header,
+			headers : headers,
 			params : {
 				id : '@'
 			},
@@ -47,8 +48,7 @@ module.exports = function (scope, stroge, resource, api, app ){
 };
 
 module.exports.$inject = [
-	'$scope',
-	'$localStorage',
+	'oauth',
 	'$resource',
 	'api'
 ];

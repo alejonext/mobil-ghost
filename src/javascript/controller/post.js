@@ -1,8 +1,4 @@
 module.exports = function (scope, param, post, toast ){
-	function showToast (data) {
-		toast.push(data);
-	}
-
 	scope.isNew = param.id === 'new';
 	scope.post = {};
 	if(!scope.isNew){
@@ -18,7 +14,7 @@ module.exports = function (scope, param, post, toast ){
 	scope.save = function () {
 		post[ scope.isNew ? 'save' : 'update' ](scope.post, showToast, showToast);
 	};
-
+	
 };
 
 module.exports.$inject = [

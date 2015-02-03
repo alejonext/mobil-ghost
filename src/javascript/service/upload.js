@@ -1,16 +1,17 @@
-module.exports = function (scope, stroge, resource, api, app ){
-	return resource( 'http' + ( stroge.secure ? 's' : '' ) + '://:urls' + api + 'uploads', {
+module.exports = function (auth, resource, api ){
+	var headers = auth.headers();
+	return resource( ':urls' + api + 'uploads', {
+		urls : auth.get(),
 	}, {
 		add : {
-			method : 'POST'
-			headers : stroge.oauth.header,
+			method : 'POST',
+			headers : headers,
 		}
 	});
 };
 
 module.exports.$inject = [
-	'$scope',
-	'$localStorage',
+	'auth',
 	'$resource',
 	'api'
 ];
